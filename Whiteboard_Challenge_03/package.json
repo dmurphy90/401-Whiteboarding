@@ -1,0 +1,19 @@
+{
+  "name": "whiteboard_challenge_03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solution.js",
+  "dependencies": {
+    "jest": "^22.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmurphy90/401-Whiteboarding"
+  },
+  "author": "",
+  "license": "ISC"
+}
