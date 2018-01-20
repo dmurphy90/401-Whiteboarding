@@ -1,0 +1,18 @@
+{
+  "name": "whiteboard_challenge_05",
+  "version": "1.0.0",
+  "description": "Write a function that returns the middle node in a singly linked list",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.1.4"
+  }
+}
