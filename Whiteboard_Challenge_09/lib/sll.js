@@ -17,10 +17,6 @@ class SLL {
     return this;
   }
 
-  headStuff(val) {
-    return head;
-  }
-
   insertEnd(val) {
     let nd = new Nd(val);
 
