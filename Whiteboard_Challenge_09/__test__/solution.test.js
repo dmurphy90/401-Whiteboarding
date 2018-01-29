@@ -4,7 +4,7 @@ const SLL = require('../lib/sll.js');
 const solution = require('../lib/solution.js');
 require('jest');
 
-let test = new SLL(1);
+let test = new SLL();
 test.insertEnd(2);
 test.insertEnd(3);
 test.insertEnd(4);
@@ -25,7 +25,7 @@ describe('Solution Module', function() {
       expect(solution.findNode(0, test)).toBeNull();
     });
     it('should return the correct node based off the value of n', () => {
-      expect(solution.findNode(1, test)).toBe({value: 6, next:{}});
+      expect(solution.findNode(3, test)).toBe({'next': {}, 'value':5});
     });
   });
 });
