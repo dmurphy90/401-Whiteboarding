@@ -16,7 +16,7 @@ describe('Problem One Module', function() {
     });
     
     it('Should return false with an unequal amount of open and closing mustache braces', function() {
-      expect(problemOne.checkBrace('{{a}{b}{c}'));
+      expect(problemOne.checkBrace('{{a}{b}{c}')).toBe(false);
       expect(problemOne.checkBrace('{tim}{{tim}')).toBe(false);
     });
   });

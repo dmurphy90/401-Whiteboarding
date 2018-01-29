@@ -4,7 +4,7 @@ const problemTwo = require('../lib/problemtwo.js');
 require('jest');
 
 describe('Problem Two Module', function() {
-  describe('#binarySearch null case ', () => {
+  describe('#binarySearch', () => {
     it('Should check that a valid input is provided', () => {
       expect(problemTwo.binarySearch()).toBeNull();
       expect(problemTwo.binarySearch('dog', 'tim')).toBeNull();
