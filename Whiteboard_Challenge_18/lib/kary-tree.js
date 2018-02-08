@@ -1,11 +1,12 @@
+
 'use strict';
 
 const Queue = require('./queue');
 
 const TreeNode = class {
-  constructor(val) {
-    this.val = val;
-    this.children = []; 
+  constructor(value) {
+    this.value = value;
+    this.children = []; // Scott haxored this! Feel free to stretch with the SLL! ;-)
   }
 };
 
@@ -16,24 +17,21 @@ const K_ary = module.exports = class {
 
   // Traversal Methods
   breadthFirst(callback) {
-    let current = null;
+    let current; // holds tree nodes
     let queue = new Queue();
     queue.enqueue(this.root);
 
 
     while(queue.back) {
       current = queue.dequeue();
-
-      console.log('current', current);
       callback(current);
-
-      current.val.children.map(c => queue.enqueue(c));
+      current.children.map(c => queue.enqueue(c));
     }
   }
 
   // Insertions
-  insert(val, parent) {
-    let tn = new TreeNode(val);
+  insert(value, parent) {
+    let tn = new TreeNode(value);
 
     if(!this.root) {
       this.root = tn;
@@ -41,17 +39,12 @@ const K_ary = module.exports = class {
     }
 
     this.breadthFirst(node => {
-      if(parent === node.val.val) {
-        node.val.children.push(tn);
+      if(parent === node.value) {
+        node.children.push(tn);
         return;
       }
     });
 
     return this;
-  }
-
-  // Removals
-  removeByVal(val) {
-    // Remove the first node you find that matches val
   }
 };

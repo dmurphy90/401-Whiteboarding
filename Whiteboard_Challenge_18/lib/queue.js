@@ -1,8 +1,8 @@
 'use strict';
 
 class Node {
-  constructor(val) {
-    this.val = val;
+  constructor(treeNode) {
+    this.treeNode = treeNode;
     this.next = null;
   }
 }
@@ -13,8 +13,8 @@ module.exports = class Queue {
     this.back = null;
   }
 
-  enqueue(val) {
-    let node = new Node(val);
+  enqueue(treeNode) {
+    let node = new Node(treeNode);
 
     this.back ? this.back.next = node : this.front = node;
     this.back = node;
@@ -28,6 +28,6 @@ module.exports = class Queue {
     this.front = this.front.next;
     if(!this.front) this.back = null;
     temp.next = null;
-    return temp;
+    return temp.treeNode;
   }
 };
