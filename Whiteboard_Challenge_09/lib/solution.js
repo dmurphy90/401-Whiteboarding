@@ -1,23 +1,44 @@
 'use strict';
 
-const Node = require('./nd.js');
-const SLL = require('./sll.js');
 const solution = module.exports = {};
 
 
-solution.findNode = function(n, head) {
-  if (!head || n < 0) return null;
-  if (!(head instanceof SLL)) return null;
-  console.log('initial head:', head);
-  console.log('n value:', n);
+solution.findNthNodeFromEnd = function(sll, n) {
+  if(n < 1) return null;
+  if(!n) return null;
 
-  for (var itr = head, length = 0; itr; itr = itr.next, length++) 
-  
-    if (n >= length) return null;
-  
-  let i;
-  for (itr = head, i = 0; i < length - n - 1; itr = itr.next, i++);
-  console.log('final itr value:', itr);  
-  return itr;
+  let revSll = solution.reverse(sll);
+
+  let curr = revSll.head;
+
+  for(let i = 0; i < n; i ++) {
+    curr = curr.next;
+    if(!curr) return 'this node does not exist';
+  }
+
+  sll = solution.reverse(revSll);
+
+  return curr;
 };
 
+
+
+solution.reverse = function(sll) {
+  if(!sll || !Object.keys(sll).length) return null;
+  let curr, nxt, prev;
+
+  curr = sll.head;
+  nxt = null;
+  prev = null;
+
+  sll.head = null;
+
+  while(!sll.head) {
+    curr.next ? nxt = curr.next : nxt = null;
+    prev ? curr.next = prev : curr.next = null;
+    prev = curr;
+    nxt ? curr = nxt : sll.head = curr;
+  }
+  
+  return sll;
+};
