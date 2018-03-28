@@ -1,31 +1,30 @@
 'use strict';
 
-const SLL = require('../lib/sll.js');
 const solution = require('../lib/solution.js');
-require('jest');
-
-let test = new SLL();
-test.insertEnd(2);
-test.insertEnd(3);
-test.insertEnd(4);
-test.insertEnd(5);
-test.insertEnd(6);
-test.insertEnd(7);
-test.insertEnd(8);
-test.insertEnd(9);
 
 describe('Solution Module', function() {
-  describe('#findNode', () => {
-    it('should verify that valid inputs are passed in', () => {
-      expect(solution.findNode()).toBeNull();
-      expect(solution.findNode('dog', 'tim')).toBeNull();
-      expect(solution.findNode([])).toBeNull();
+  describe('#Reverse', () => {
+    let sll = {head: {value: 1, next: {value: 2, next: null}}};
+    it('should reverse a singly linked list', () => {
+      expect(solution.reverse(sll)).toEqual({head: {value: 2, next: {value: 1, next: null}}});
     });
-    it('should verify that n is greater than 0', () => {
-      expect(solution.findNode(0, test)).toBeNull();
+    it('should return null if no argument is passed in', () => {
+      expect(solution.reverse()).toBeNull();
     });
-    it('should return the correct node based off the value of n', () => {
-      expect(solution.findNode(3, test)).toBe({'next': {}, 'value':5});
+    it('should return null if the singly linked list is empty', () => {
+      expect(solution.reverse({})).toBeNull();
+    });
+  });
+  describe('#FindNthNodeFromEnd', () => {
+    let sll = {head: {value: 1, next: {value: 2, next: null}}};
+    it('should return the nth node from end with valid arguments', () => {
+      expect(solution.findNthNodeFromEnd(sll, 1).value).toEqual(1);
+    });
+    it('should return error message if n is greater than length of list', () => {
+      expect(solution.findNthNodeFromEnd(sll, 5)).toBe('this node does not exist');
+    });
+    it('should return null if n is not passed in', () => {
+      expect(solution.findNthNodeFromEnd(sll)).toBeNull();
     });
   });
 });
